@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { PlanetUseCaseCreate } from "../../../aplication/usecases/create/planet.aplication.usecases.create";
 import { PlanetControllerCreateDto } from "./planet.infrastructure.controllers.create.dto";
-import { PlanetInfrastructureRepository } from "../../repository/planet.infrastructure.controller.repository";
+import { PlanetInfrastructureRepository } from "../../repository/planet.infrastructure.repository";
 import { plainToInstance } from 'class-transformer';
 import { AwsTranslateReadJson } from '../../aws/translate/aws.translate.read.json';
 import { validate } from "class-validator";

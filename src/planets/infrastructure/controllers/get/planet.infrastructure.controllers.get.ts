@@ -1,7 +1,7 @@
 import {Request, Response} from 'express';
 import { PlanetUseCaseGet } from '../../../aplication/usecases/get/planet.aplication.usecases.get';
 import { PlanetControllerGetDto } from './planet.infrastructure.controllers.get.dto';
-import { PlanetInfrastructureRepository } from '../../repository/planet.infrastructure.controller.repository';
+import { PlanetInfrastructureRepository } from '../../repository/planet.infrastructure.repository';
 import { plainToInstance } from 'class-transformer';
 import { validate } from 'class-validator';
 
