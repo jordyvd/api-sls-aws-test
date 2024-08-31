@@ -1,0 +1,63 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: jordyvd
+# "app" enables Serverless Framework Dashboard features and sharing them with other Services.
+app: api-sls-aws-test
+# "service" is the name of this project. This will also be added to your AWS resource names.
+service: api-sls-aws-test
+
+# stages:
+#   default:
+#     params:
+#       tableName: "Planets"
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - dynamodb:CreateTable
+            - dynamodb:DeleteTable
+            - dynamodb:Query
+            - dynamodb:Scan
+            - dynamodb:PutItem
+          Resource:
+            - Fn::GetAtt: [Planet, Arn]
+        - Effect: Allow
+          Action:
+            - translate:TranslateText
+          Resource: "*"
+  # environment:
+  #   USERS_TABLE: ${param:tableName}
+
+functions:
+  api:
+    handler: ./src/planets/handler.handler
+    events:
+      - httpApi: "*"
+    # timeout: 20
+
+resources:
+  Resources:
+    Planet:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+        TableName: Planets
+
+custom:
+  esbuild:
+    bundle: true
+    minify: true
+
+plugins:
+  - serverless-offline
+  
