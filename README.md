@@ -29,7 +29,7 @@ functions:
 ## Uso
 
 ### Planets POST
-Agrear registros en DynamoDB. Consideraciones:
+Agrear registros en DynamoDB en la tabla PlanetsTable
 - 
  - **Endpoint:** `/create/`
  - **Traducción:** Los atributos del json pasado por el body serán traducidos
