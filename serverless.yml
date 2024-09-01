@@ -47,6 +47,7 @@ functions:
       - httpApi:
           path: /people/{proxy+}
           method: ANY
+    timeout: 10
 
 resources:
   Resources:

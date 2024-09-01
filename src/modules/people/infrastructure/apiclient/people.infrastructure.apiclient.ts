@@ -3,17 +3,12 @@ import { AwsTranslateReadJson } from '@/utils/aws/translate/utils.aws.translate.
 
 export class PlanetInfrastructureApiClient {
     
-    async execute(id: number | null) {
-
-        const url = `https://swapi.dev/api/people/${id ?? ''}`;
+    async execute(id: number) {
+        const url = `https://swapi.dev/api/people/${id}/`;
         const response = await fetch(url);
 
-        const data = await response.json();
+        let data: any = await response.json();
         
-        if(id !== null){
-            return await AwsTranslateReadJson.readJson(data);
-        }
-
-        return [];
+        return await AwsTranslateReadJson.readJson(data);
     }
 }
