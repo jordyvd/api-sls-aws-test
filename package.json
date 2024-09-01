@@ -8,8 +8,11 @@
     "@aws-sdk/lib-dynamodb": "^3.637.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
+    "http": "^0.0.1-security",
     "joi": "^17.13.3",
+    "node-fetch": "^3.3.2",
     "serverless-http": "^3.2.0",
+    "serverless-offline-temp": "^14.0.0",
     "tsconfig-paths": "^4.2.0",
     "uuid": "^10.0.0"
   },
@@ -17,15 +20,19 @@
     "@types/aws-lambda": "^8.10.145",
     "@types/aws-sdk": "^2.7.0",
     "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.12",
     "@types/node": "^22.5.1",
+    "@types/node-fetch": "^2.6.11",
     "@types/uuid": "^10.0.0",
     "express": "^4.19.2",
-    "serverless-offline": "^13.8.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4"
   },
   "scripts": {
     "build": "tsc",
-    "dev": "serverless offline --stage develop --region us-east-1"
+    "dev": "serverless offline",
+    "test": "jest"
   }
 }

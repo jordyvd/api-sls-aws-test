@@ -13,6 +13,7 @@ service: api-sls-aws-test
 provider:
   name: aws
   runtime: nodejs20.x
+  region: us-east-1
   iam:
     role:
       statements:
@@ -33,11 +34,19 @@ provider:
   #   USERS_TABLE: ${param:tableName}
 
 functions:
-  api:
-    handler: ./src/planets/handler.handler
+  planets:
+    handler: ./src/modules/planets/handler.handler
     events:
-      - httpApi: "*"
-    # timeout: 20
+      - httpApi:
+          path: /planets/{proxy+}
+          method: ANY
+         
+  people:
+    handler: ./src/modules/people/handler.handler
+    events:
+      - httpApi:
+          path: /people/{proxy+}
+          method: ANY
 
 resources:
   Resources:
@@ -51,13 +60,15 @@ resources:
           - AttributeName: id
             KeyType: HASH
         BillingMode: PAY_PER_REQUEST
-        TableName: Planets
+        TableName: PlanetsTable
+
+plugins:
+  - serverless-offline-temp
 
 custom:
   esbuild:
     bundle: true
     minify: true
 
-plugins:
-  - serverless-offline
+
   
