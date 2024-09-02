@@ -38,6 +38,9 @@ functions:
     handler: ./src/modules/planets/handler.handler
     events:
       - httpApi:
+          path: /planets
+          method: ANY
+      - httpApi:
           path: /planets/{proxy+}
           method: ANY
          
@@ -45,9 +48,12 @@ functions:
     handler: ./src/modules/people/handler.handler
     events:
       - httpApi:
+          path: /people
+          method: ANY
+      - httpApi:
           path: /people/{proxy+}
           method: ANY
-    timeout: 10
+    timeout: 20
 
 resources:
   Resources:
