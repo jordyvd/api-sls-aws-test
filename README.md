@@ -29,13 +29,15 @@ functions:
 ## Uso
 
 ### Planets POST
-Agrear registros en DynamoDB en la tabla PlanetsTable
 - 
- - **Endpoint:** `/create/`
+ Agregar registros en la tabla PlanetsTable (DynamoDB)
+ - **Endpoint:** `/planets/`
+ - **Método:** `POST`
  - **Traducción:** Los atributos del json pasado por el body serán traducidos
+ - **Validación:** Cada parámetro está validado por tipos de dato(ejm: string), si uno de los parámetros no cumple con la validación, el api arrojará un error.
  - **Body de la solicitud:**
  ```json
-  {
+  { 
     "climate": "Arid2",
     "diameter": "10465",
     "gravity": "1 standard",
@@ -57,3 +59,69 @@ Agrear registros en DynamoDB en la tabla PlanetsTable
       }
   }
  ```
+
+ ### Planets GET
+-
+ Obtener los datos registrados en la tabla PlanetsTable (DynamoDB)
+ - **Endpoint:** `/planets/`
+ - **Método:** `GET`
+ - **Respuesta:**
+  ```json
+  {
+      "message": "Planets found",
+      "planets": [
+          {
+              "nombre": "Tatooine",
+              "clima": "Arid",
+              "diámetro": "10465",
+              "gravedad": "1 standard",
+              "id": "148ece5e-64bf-4051-b43d-84925ae17378",
+              "población": "200000"
+          }
+      ]
+  }
+  ```
+ ### People GET - Integración con SWAPI
+-
+ Traducir los nombres de atributos de ingles a español
+ - **Endpoint:** `/people/:id`
+ - **Método:** `GET`
+ - **Respuesta:**
+  ```json
+  {
+      "message": "Success",
+      "people": {
+          "nombre": "Luke Skywalker",
+          "altura": "172",
+          "masa": "77",
+          "color_de_cabello": "blond",
+          "color_de_piel": "fair",
+          "color_de_ojos": "blue",
+          "año_nacimiento": "19BBY",
+          "género": "male",
+          "mundo_natal": "https://swapi.dev/api/planets/1/",
+          "películas": [
+              "https://swapi.dev/api/films/1/",
+              "https://swapi.dev/api/films/2/",
+              "https://swapi.dev/api/films/3/",
+              "https://swapi.dev/api/films/6/"
+          ],
+          "especie": [],
+          "vehículos": [
+              "https://swapi.dev/api/vehicles/14/",
+              "https://swapi.dev/api/vehicles/30/"
+          ],
+          "naves_estelares": [
+              "https://swapi.dev/api/starships/12/",
+              "https://swapi.dev/api/starships/22/"
+          ],
+          "creado": "2014-12-09T13:50:51.644000Z",
+          "editado": "2014-12-20T21:17:56.891000Z",
+          "url": "https://swapi.dev/api/people/1/"
+      }
+  }
+  ```
+ 
+
+
+
