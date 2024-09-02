@@ -30,11 +30,11 @@ functions:
 
 ### Planets POST
  
- Agregar registros en la tabla PlanetsTable (DynamoDB)
- - **Endpoint:** `/planets/`
+ Agregar registros en la tabla PlanetsTable (DynamoDB). 
+ - **Endpoint:** `/planets`
  - **Método:** `POST`
- - **Traducción:** Los atributos del json pasado por el body serán traducidos
- - **Validación:** Cada parámetro está validado por tipos de dato(ejm: string), si uno de los parámetros no cumple con la validación, el api arrojará un error.
+ - **Traducción:** Los atributos del json pasado por el body serán traducidos de inglés a español.
+ - **Validación:** Cada atributo es validado según su tipo de dato (por ejemplo, string).
  - **Body de la solicitud:**
  ```json
   { 
@@ -63,7 +63,7 @@ functions:
  ### Planets GET
 
  Obtener los datos registrados en la tabla PlanetsTable (DynamoDB)
- - **Endpoint:** `/planets/`
+ - **Endpoint:** `/planets`
  - **Método:** `GET`
  - **Respuesta:**
   ```json
@@ -83,7 +83,7 @@ functions:
   ```
  ### People GET - Integración con SWAPI
 
- Traducir los nombres de atributos de ingles a español
+ Traducir los nombres de atributos de inglés a español
  - **Endpoint:** `/people/:id`
  - **Método:** `GET`
  - **Respuesta:**
