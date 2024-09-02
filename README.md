@@ -29,7 +29,7 @@ functions:
 ## Uso
 
 ### Planets POST
-- 
+ 
  Agregar registros en la tabla PlanetsTable (DynamoDB)
  - **Endpoint:** `/planets/`
  - **Método:** `POST`
@@ -61,7 +61,7 @@ functions:
  ```
 
  ### Planets GET
--
+
  Obtener los datos registrados en la tabla PlanetsTable (DynamoDB)
  - **Endpoint:** `/planets/`
  - **Método:** `GET`
@@ -82,7 +82,7 @@ functions:
   }
   ```
  ### People GET - Integración con SWAPI
--
+
  Traducir los nombres de atributos de ingles a español
  - **Endpoint:** `/people/:id`
  - **Método:** `GET`
